@@ -1,0 +1,33 @@
+<div class="col-md-3">
+  <div id="profile-box">
+    <div id="profile-box-info">
+      Profile
+      <br><div class="profile-image"><%= image_tag(@user.avatar.url) %></div>
+      <br>Email Address: <%= @user.email %>
+      <br>Tweet Count: <%= @user.tweets.count %>
+        <% if user_signed_in? && @user.email==current_user.email %>
+          <br><br><%= link_to 'Edit my profile', edit_user_registration_path %>
+        <% end %>
+    </div>
+  </div>
+</div>
+<div class="col-md-9">
+<% @tweets = Tweet.where(["user_id = " + @user.id.to_s]).take(100).reverse %>
+  <% @tweets.each do |tweet| %>
+    <div class="tweet">
+      <div class="tweet-image"><%= image_tag(tweet.user.avatar.url) %></div>
+      <div class="tweet-content">
+        <div class="tweet-email"><%= tweet.user.email %></div>
+        <%= tweet.tweet %>
+      </div>
+      <div class="clear"></div>
+      <% if user_signed_in? && tweet.user.email==current_user.email %>
+      <div class="controls">
+      <%= link_to 'Show', tweet %>
+      <%= link_to 'Edit', edit_tweet_path(tweet) %>
+      <%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

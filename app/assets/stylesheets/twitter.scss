@@ -1,0 +1,156 @@
+ $primary-color: #1da1f2;
+ $link-color: #66757f;
+ $body-color: #14171a;
+ 
+ body{
+     font-size: 15px;
+     color: $body-color;
+     padding-top: 50px;
+     background: #e6ecf0;
+ }
+ a{
+     color: $link-color;
+     font-size: 1.2em;
+ }
+ a:hover{
+     background: transparent;
+     color: $primary-color;
+     text-decoration: none;
+ }
+ h2{
+     margin-top: 0px;
+ }
+.topbar{
+    color: $primary-color;
+    position: fixed;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    width: 100%;
+    top:0;
+    z-index: 9999;
+}
+#logo{
+    color: $primary-color;
+    position: absolute;
+    left: 50%;
+    margin: 8px -10px;
+    font-size: 2em
+}
+#logo:hover{
+    background-color: #ffffff;
+    text-decoration: none;
+}
+#navigation ul{
+    margin: 0;
+    padding: 0;
+}
+#navigation ul li{
+    display: inline-block;
+    margin-right:5px;
+}
+#navigation ul li a{
+    display: block;
+    padding: 13px 10px;
+}
+#navigation ul li a:hover, #navigation ul li a.active{
+    border-bottom: 5px solid $primary-color;
+    padding-bottom: 10px;
+}
+
+#navigation-profile ul{
+    margin: 0;
+    padding: 0;
+}
+#navigation-profile ul li{
+    display: inline-block;
+    margin-right:5px;
+}
+#navigation-profile ul li a{
+    display: block;
+    padding: 13px 10px;
+}
+#navigation{
+    float:left;
+}
+#navigation-profile{
+    float:right;
+}
+.new-user{
+    background-image: image-url('pexels-photo-59519.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.new-user-content{
+    position: relative;
+    z-index: 0;
+    width: 100%;
+}
+.new-user-content-box{
+    position: absolute;
+    top: 50px;
+    left: 70%;
+    background: rgba(255,255,255,0.75);
+    padding: 20px;    
+}
+
+.tweet{
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    background: #ffffff;
+    padding: 20px;
+    clear: both;
+}
+#new_tweet{
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    background: #F3F5EC;
+    padding: 20px;
+}    
+.controls{
+    text-align: right;
+}
+.controls a{
+    font-size: 0.7em;
+}
+#profile-box{
+    background: #ffffff;
+    display: block;
+}
+#profile-box-info{
+    padding: 20px;
+}
+.white-bg{
+    background: #ffffff;
+    display: block;
+    padding: 20px;
+}
+.container > .white-bg{
+    min-height: 100vh;
+}
+
+.round-image-50 img{
+    border-radius: 30px;
+    height: 30px;
+}
+.tweet-image img{
+    border-radius: 60px;
+    height: 60px;
+    float: left;
+    margin-right: 20px;
+}
+.tweet-content{
+    float: left;
+}
+.tweet-email{
+    font-size: 0.7em;
+}
+.clear{
+    clear: both;
+}
+.profile-image{
+    text-align: center;
+}
+.profile-image img{
+    border-radius: 80px;
+    height: 80px;
+}

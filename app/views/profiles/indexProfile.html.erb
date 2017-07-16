@@ -1,0 +1,8 @@
+<div class="white-bg">
+    <h2>Newest Users</h2>
+    <% @users.reverse %>
+    <% @users.each do |user| %>
+    <br><%= link_to user.email, '../profile/'+ user.id.to_s %>
+    <% end %>
+</div>
+    

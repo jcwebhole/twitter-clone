@@ -1,0 +1,64 @@
+<div class="col-md-3">
+  <div id="profile-box">
+    <div id="profile-box-info">
+      Profile
+      <br><div class="profile-image"><%= image_tag(current_user.avatar.url) %></div>
+      <br>Email Address: <%= current_user.email %>
+      <br>Tweet Count: <%= current_user.tweets.count %>
+      <br><br><%= link_to 'Edit my profile', edit_user_registration_path %>
+    </div>
+  </div>
+</div>
+<div class="col-md-6">
+  <%= render 'form' %>
+  <% @tweets.each do |tweet| %>
+    <div class="tweet">
+      <div class="tweet-image"><%= image_tag(tweet.user.avatar.url) %></div>
+      <div class="tweet-content">
+        <div class="tweet-email"><%= tweet.user.email %></div>
+        <%= tweet.tweet %>
+      </div>
+      <div class="clear"></div>
+      <% if user_signed_in? && tweet.user.email==current_user.email %>
+      <div class="controls">
+      <%= link_to 'Show', tweet %>
+      <%= link_to 'Edit', edit_tweet_path(tweet) %>
+      <%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div class="col-md-3">
+  <div id="users-box" class="white-bg">
+    10 Newest Users:
+    <% @users.each do |user| %>
+    <br><%= link_to user.email, 'profile/'+ user.id.to_s %>
+    <% end %>
+    <br><br><%= link_to 'Show all', 'profiles/' %>
+  </div>
+</div>
+
+<!--
+<table>
+  <thead>
+    <tr>
+      <th>Tweet</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.tweet %></td>
+        <td><%= tweet.user %></td>
+        <td><%= link_to 'Show', tweet %></td>
+        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
+        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+-->
